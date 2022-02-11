@@ -29,6 +29,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -40,4 +44,53 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    apply plugin: 'kotlin-android-extensions'
+    apply plugin: "kotlin-kapt"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //Circle ImageView
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+
+    //Room
+    def room_version = "2.3.0"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    //Room
+    var roomVersion = "2.3.0"
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    // optional - RxJava2 support for Room
+    implementation("androidx.room:room-rxjava2:$roomVersion")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    //RX
+    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    // optional - RxJava2 support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    //RX
+    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
+    //material komponen
+    implementation 'com.google.android.material:material:1.2.1'
+
+    //SwipeToRefresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+
+    //okehttp
+    implementation("com.squareup.okhttp3:logging-interceptor:4.2.0")
 }
