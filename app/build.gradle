@@ -4,6 +4,9 @@ plugins {
 }
 
 android {
+    viewBinding {
+        enabled = true
+    }
     compileSdk 31
 
     defaultConfig {
@@ -93,4 +96,5 @@ dependencies {
 
     //okehttp
     implementation("com.squareup.okhttp3:logging-interceptor:4.2.0")
+
 }
