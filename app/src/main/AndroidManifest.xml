@@ -13,7 +13,9 @@
         android:theme="@style/Theme.MovieInfo">
         <activity
             android:name=".LoginActivity"
-            android:exported="true" />
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
