@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
         initView()
         getRequestToken()
+        //test
     }
 
     // 1. Get Request Token
