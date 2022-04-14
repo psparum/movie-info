@@ -1,5 +1,6 @@
 package com.arum.movieinfo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -9,11 +10,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
-import com.arum.bottomnavigation.network.NetworkConfig
 import com.arum.movieinfo.databinding.ActivityLoginBinding
 import com.arum.movieinfo.model.*
 import com.arum.movieinfo.network.NetworkConfigLogin
-import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,20 +33,28 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun postLogin() {
-        val username = etUsername.text.toString()
-        val password = etPassword.text.toString()
+        val username = binding.etUsername.text.toString()
+        val password = binding.etPassword.text.toString()
 
         NetworkConfigLogin().getService()
             .postLogin(username, password)
             .enqueue(object : Callback<UserData> {
                 override fun onResponse(call: Call<UserData>, response: Response<UserData>) {
                     response.body()?.let {
-                       Toast.makeText(this@LoginActivity, it.toString(), Toast.LENGTH_LONG).show()
+                       Toast.makeText(this@LoginActivity, "Selamat Datang ${it.username}", Toast.LENGTH_LONG).show()
+                        gotoMainPage()
                     }
                 }
 
-                override fun onFailure(call: Call<UserData>, t: Throwable) {}
+                override fun onFailure(call: Call<UserData>, t: Throwable) {
+                    Toast.makeText(this@LoginActivity, "Error coy !!", Toast.LENGTH_LONG).show()
+                }
             })
+    }
+
+    private fun gotoMainPage() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun initView() {

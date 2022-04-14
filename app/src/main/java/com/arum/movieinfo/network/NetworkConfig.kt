@@ -1,5 +1,6 @@
 package com.arum.bottomnavigation.network
 
+import com.arum.movieinfo.network.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
