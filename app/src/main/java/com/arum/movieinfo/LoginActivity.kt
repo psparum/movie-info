@@ -1,6 +1,7 @@
 package com.arum.movieinfo
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -10,6 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import com.arum.movieinfo.core.SharedPreference
 import com.arum.movieinfo.databinding.ActivityLoginBinding
 import com.arum.movieinfo.model.*
 import com.arum.movieinfo.network.NetworkConfigLogin
@@ -20,6 +22,7 @@ import retrofit2.Response
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
+    lateinit var sharedPreference: SharedPreference
     private var isShowPassword = false
     private var isUsernameEmpty = false
     private var isPasswordEmpty = false
@@ -29,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedPreference = SharedPreference(this)
         initView()
     }
 
@@ -43,6 +47,8 @@ class LoginActivity : AppCompatActivity() {
                     response.body()?.let {
                        Toast.makeText(this@LoginActivity, "Selamat Datang ${it.username}", Toast.LENGTH_LONG).show()
                         gotoMainPage()
+                        sharedPreference.saveName(it.profile.firstName + it.profile.lastName)
+                        sharedPreference.saveImage(it.profile.image_url)
                     }
                 }
 
@@ -55,6 +61,7 @@ class LoginActivity : AppCompatActivity() {
     private fun gotoMainPage() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun initView() {
