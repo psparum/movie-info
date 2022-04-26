@@ -124,7 +124,7 @@ class HomeFragment : Fragment(), PopularListener, NowPlayingListener, UpComingLi
                 ) {
                     response.body()?.results.let {
                         if (it != null) {
-                            popularAdapter?.update(it)
+                            popularAdapter?.update(it.take(10) as MutableList<Resultss>)
                         }
 
                     }

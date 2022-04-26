@@ -22,7 +22,7 @@ class PopularAdapter (val listener : PopularListener): RecyclerView.Adapter<Popu
     }
 
     override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
-        holder.bind(popular[position])
+        holder.bind(popular[position], position)
     }
 
     override fun getItemCount(): Int {
@@ -31,13 +31,13 @@ class PopularAdapter (val listener : PopularListener): RecyclerView.Adapter<Popu
 
 
     inner class PopularViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(data: Resultss) {
+        fun bind(data: Resultss, position: Int) {
             itemView.apply {
                 tvPopular.text = data.original_title
-
+                tvPopularNumber.text = (position + 1).toString()
 
                 Glide.with(context)
-                    .load("https://image.tmdb.org/t/p/w92/" + data.backdrop_path)
+                    .load("https://image.tmdb.org/t/p/w92/" + data.poster_path)
                     .into(ivPopular)
                 setOnClickListener {
                     listener.PopularOnClick(data)
