@@ -16,4 +16,5 @@ data class UpcomingList(
     val vote_average: Double?,
     val backdrop_path: String?,
     val overview: String?
+
 ) : Parcelable

@@ -19,4 +19,19 @@ interface ApiService {
         @Query("api_key") api_key: String = "494caa05ffee149393c1cbf76a22d3f3"
     ): Call<UpcomingResponse>
 
+    @GET("movie/now_playing")
+    fun getNowPlaying(
+        @Query("api_key") api_key: String = "494caa05ffee149393c1cbf76a22d3f3"
+    ): Call<NowPlayingResponse>
+
+    @GET("movie/popular")
+    fun getPopular(
+        @Query("api_key") api_key: String = "494caa05ffee149393c1cbf76a22d3f3"
+    ): Call<PopularResponse>
+
+    @GET("movie/upcoming")
+    fun getUpComing(
+        @Query("api_key") api_key: String = "494caa05ffee149393c1cbf76a22d3f3"
+    ): Call<UpcomingResponse>
+
 }
