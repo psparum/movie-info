@@ -37,7 +37,7 @@ class UpComingAdapter (val listener : UpComingListener): RecyclerView.Adapter<Up
 
 
                 Glide.with(context)
-                    .load("https://image.tmdb.org/t/p/w92/" + data.backdrop_path)
+                    .load("https://image.tmdb.org/t/p/w780/" + data.backdrop_path)
                     .into(ivUpComing)
                 setOnClickListener {
                     listener.UpComingOnClick(data)

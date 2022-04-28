@@ -53,11 +53,11 @@ class HomeFragment : Fragment(), PopularListener, NowPlayingListener, UpComingLi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getDataFromApi()
         setUpAdapterPopular()
         setUpAdapterNowPlaying()
         setUpAdapterUpComing()
 
-        getDataFromApi()
     }
 
     private fun getDataFromApi() {

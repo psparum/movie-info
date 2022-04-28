@@ -26,8 +26,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         idMovie = intent.getIntExtra("idMovie", 0)
-        getMovieDetail()
         getVideos()
+        getMovieDetail()
 
         binding.iToolbar.ivBack.setOnClickListener {
             finish()

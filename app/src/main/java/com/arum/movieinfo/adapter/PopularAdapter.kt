@@ -37,7 +37,7 @@ class PopularAdapter (val listener : PopularListener): RecyclerView.Adapter<Popu
                 tvPopularNumber.text = (position + 1).toString()
 
                 Glide.with(context)
-                    .load("https://image.tmdb.org/t/p/w92/" + data.poster_path)
+                    .load("https://image.tmdb.org/t/p/w780/" + data.poster_path)
                     .into(ivPopular)
                 setOnClickListener {
                     listener.PopularOnClick(data)

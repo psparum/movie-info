@@ -37,7 +37,7 @@ class NowPlayingAdapter (val listener : NowPlayingListener): RecyclerView.Adapte
 
 
                 Glide.with(context)
-                    .load("https://image.tmdb.org/t/p/w92/" + data.backdrop_path)
+                    .load("https://image.tmdb.org/t/p/w780/" + data.backdrop_path)
                     .into(ivNowPlaying)
                 setOnClickListener {
                     listener.NowPlayingOnClick(data)
