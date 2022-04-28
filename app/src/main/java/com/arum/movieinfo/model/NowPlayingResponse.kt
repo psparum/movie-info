@@ -5,12 +5,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class NowPlayingResponse(
-    val results: MutableList<Results>? = null
+    val results: MutableList<NowPlayingList>? = null
 
 ) : Parcelable
 
 @Parcelize
-data class Results(
+data class NowPlayingList(
     val id: Int,
     val original_title: String? = null,
     val poster_path: String? = null,

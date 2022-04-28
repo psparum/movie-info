@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieInfo">
         <activity
+            android:name=".detail.DetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -27,7 +30,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

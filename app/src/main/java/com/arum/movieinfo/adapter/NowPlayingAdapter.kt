@@ -5,14 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arum.movieinfo.R
-import com.arum.movieinfo.model.Results
-import com.arum.movieinfo.model.Resultss
+import com.arum.movieinfo.model.NowPlayingList
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_nowplaying.view.*
-import kotlinx.android.synthetic.main.item_popular.view.*
 
 
-private var nowplaying: MutableList<Results> = mutableListOf()
+private var nowplaying: MutableList<NowPlayingList> = mutableListOf()
 
 class NowPlayingAdapter (val listener : NowPlayingListener): RecyclerView.Adapter<NowPlayingAdapter.NowPlayingViewHolder>() {
 
@@ -33,7 +31,7 @@ class NowPlayingAdapter (val listener : NowPlayingListener): RecyclerView.Adapte
 
 
     inner class NowPlayingViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(data: Results) {
+        fun bind(data: NowPlayingList) {
             itemView.apply {
                 tvNowPlaying.text = data.original_title
 
@@ -49,7 +47,7 @@ class NowPlayingAdapter (val listener : NowPlayingListener): RecyclerView.Adapte
 
     }
 
-    fun update(data: MutableList<Results>) {
+    fun update(data: MutableList<NowPlayingList>) {
         nowplaying = data
         notifyDataSetChanged()
 
@@ -57,7 +55,7 @@ class NowPlayingAdapter (val listener : NowPlayingListener): RecyclerView.Adapte
 }
 
 interface NowPlayingListener {
-    fun NowPlayingOnClick (data : Results)
+    fun NowPlayingOnClick (data : NowPlayingList)
 }
 
 

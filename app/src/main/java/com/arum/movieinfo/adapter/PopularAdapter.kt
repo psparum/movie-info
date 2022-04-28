@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arum.movieinfo.R
-import com.arum.movieinfo.model.Resultss
+import com.arum.movieinfo.model.PopularList
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_popular.view.*
 
 
-private var popular: MutableList<Resultss> = mutableListOf()
+private var popular: MutableList<PopularList> = mutableListOf()
 
 class PopularAdapter (val listener : PopularListener): RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() {
 
@@ -31,7 +31,7 @@ class PopularAdapter (val listener : PopularListener): RecyclerView.Adapter<Popu
 
 
     inner class PopularViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(data: Resultss, position: Int) {
+        fun bind(data: PopularList, position: Int) {
             itemView.apply {
                 tvPopular.text = data.original_title
                 tvPopularNumber.text = (position + 1).toString()
@@ -47,7 +47,7 @@ class PopularAdapter (val listener : PopularListener): RecyclerView.Adapter<Popu
 
     }
 
-    fun update(data: MutableList<Resultss>) {
+    fun update(data: MutableList<PopularList>) {
         popular = data
         notifyDataSetChanged()
 
@@ -55,7 +55,7 @@ class PopularAdapter (val listener : PopularListener): RecyclerView.Adapter<Popu
 }
 
 interface PopularListener {
-    fun PopularOnClick (data : Resultss)
+    fun PopularOnClick (data : PopularList)
 }
 
 

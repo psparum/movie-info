@@ -1,5 +1,6 @@
 package com.arum.movieinfo.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import com.arum.bottomnavigation.network.NetworkConfig
 import com.arum.movieinfo.R
 import com.arum.movieinfo.adapter.*
 import com.arum.movieinfo.databinding.FragmentHomeBinding
+import com.arum.movieinfo.detail.DetailActivity
 import com.arum.movieinfo.model.*
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -124,7 +126,7 @@ class HomeFragment : Fragment(), PopularListener, NowPlayingListener, UpComingLi
                 ) {
                     response.body()?.results.let {
                         if (it != null) {
-                            popularAdapter?.update(it.take(10) as MutableList<Resultss>)
+                            popularAdapter?.update(it.take(10) as MutableList<PopularList>)
                         }
 
                     }
@@ -169,16 +171,25 @@ class HomeFragment : Fragment(), PopularListener, NowPlayingListener, UpComingLi
         imageSlider.setImageList(imageList)
     }
 
-    override fun NowPlayingOnClick(data: Results) {
-        TODO("Not yet implemented")
+    override fun NowPlayingOnClick(data: NowPlayingList) {
+        val intent= Intent(requireContext(), DetailActivity::class.java)
+        intent.putExtra("idMovie" , data.id)
+        startActivity(intent)
+
     }
 
-    override fun PopularOnClick(data: Resultss) {
-        TODO("Not yet implemented")
+    override fun PopularOnClick(data: PopularList) {
+        val intent= Intent(requireContext(), DetailActivity::class.java)
+        intent.putExtra("idMovie" , data.id)
+        startActivity(intent)
+
     }
 
     override fun UpComingOnClick(data: UpcomingList) {
-        TODO("Not yet implemented")
+        val intent= Intent(requireContext(), DetailActivity::class.java)
+        intent.putExtra("idMovie" , data.id)
+        startActivity(intent)
+
     }
 
 
